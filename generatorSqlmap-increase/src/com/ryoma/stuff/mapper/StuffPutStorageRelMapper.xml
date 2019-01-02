@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ryoma.stuff.mapper.StuffPutStorageRelMapper" >
+  <resultMap id="BaseResultMap" type="com.ryoma.stuff.entity.StuffPutStorageRel" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="cook_id" property="cookId" jdbcType="BIGINT" />
+    <result column="proj_id" property="projId" jdbcType="BIGINT" />
+    <result column="storage_put_code" property="storagePutCode" jdbcType="VARCHAR" />
+    <result column="stuff_id" property="stuffId" jdbcType="BIGINT" />
+    <result column="stuff_standard" property="stuffStandard" jdbcType="VARCHAR" />
+    <result column="stuff_unit" property="stuffUnit" jdbcType="VARCHAR" />
+    <result column="stuff_resource" property="stuffResource" jdbcType="INTEGER" />
+    <result column="stuff_name" property="stuffName" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="put_num" property="putNum" jdbcType="BIGINT" />
+    <result column="put_price" property="putPrice" jdbcType="DECIMAL" />
+    <result column="total" property="total" jdbcType="DECIMAL" />
+    <result column="put_type" property="putType" jdbcType="INTEGER" />
+    <result column="update_user_id" property="updateUserId" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_user_id" property="createUserId" jdbcType="BIGINT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, cook_id, proj_id, storage_put_code, stuff_id, stuff_standard, stuff_unit, stuff_resource, 
+      stuff_name, level, put_num, put_price, total, put_type, update_user_id, update_time, 
+      create_user_id, remark, create_time, status
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    id,cook_id,proj_id,storage_put_code,stuff_id,stuff_standard,stuff_unit,stuff_resource,stuff_name,level,put_num,put_price,total,put_type,update_user_id,update_time,create_user_id,remark,create_time,status
+    from t_stuff_put_storage_rel
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_stuff_put_storage_rel
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ryoma.stuff.entity.StuffPutStorageRel" >
+    insert into t_stuff_put_storage_rel (id, cook_id, proj_id, 
+      storage_put_code, stuff_id, stuff_standard, 
+      stuff_unit, stuff_resource, stuff_name, 
+      level, put_num, put_price, 
+      total, put_type, update_user_id, 
+      update_time, create_user_id, remark, 
+      create_time, status)
+    values (#{id,jdbcType=BIGINT}, #{cookId,jdbcType=BIGINT}, #{projId,jdbcType=BIGINT}, 
+      #{storagePutCode,jdbcType=VARCHAR}, #{stuffId,jdbcType=BIGINT}, #{stuffStandard,jdbcType=VARCHAR}, 
+      #{stuffUnit,jdbcType=VARCHAR}, #{stuffResource,jdbcType=INTEGER}, #{stuffName,jdbcType=VARCHAR}, 
+      #{level,jdbcType=INTEGER}, #{putNum,jdbcType=BIGINT}, #{putPrice,jdbcType=DECIMAL}, 
+      #{total,jdbcType=DECIMAL}, #{putType,jdbcType=INTEGER}, #{updateUserId,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ryoma.stuff.entity.StuffPutStorageRel" >
+    insert into t_stuff_put_storage_rel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cookId != null" >
+        cook_id,
+      </if>
+      <if test="projId != null" >
+        proj_id,
+      </if>
+      <if test="storagePutCode != null" >
+        storage_put_code,
+      </if>
+      <if test="stuffId != null" >
+        stuff_id,
+      </if>
+      <if test="stuffStandard != null" >
+        stuff_standard,
+      </if>
+      <if test="stuffUnit != null" >
+        stuff_unit,
+      </if>
+      <if test="stuffResource != null" >
+        stuff_resource,
+      </if>
+      <if test="stuffName != null" >
+        stuff_name,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="putNum != null" >
+        put_num,
+      </if>
+      <if test="putPrice != null" >
+        put_price,
+      </if>
+      <if test="total != null" >
+        total,
+      </if>
+      <if test="putType != null" >
+        put_type,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cookId != null" >
+        #{cookId,jdbcType=BIGINT},
+      </if>
+      <if test="projId != null" >
+        #{projId,jdbcType=BIGINT},
+      </if>
+      <if test="storagePutCode != null" >
+        #{storagePutCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stuffId != null" >
+        #{stuffId,jdbcType=BIGINT},
+      </if>
+      <if test="stuffStandard != null" >
+        #{stuffStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="stuffUnit != null" >
+        #{stuffUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="stuffResource != null" >
+        #{stuffResource,jdbcType=INTEGER},
+      </if>
+      <if test="stuffName != null" >
+        #{stuffName,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="putNum != null" >
+        #{putNum,jdbcType=BIGINT},
+      </if>
+      <if test="putPrice != null" >
+        #{putPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="total != null" >
+        #{total,jdbcType=DECIMAL},
+      </if>
+      <if test="putType != null" >
+        #{putType,jdbcType=INTEGER},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ryoma.stuff.entity.StuffPutStorageRel" >
+    update t_stuff_put_storage_rel
+    <set >
+      <if test="cookId != null" >
+        cook_id = #{cookId,jdbcType=BIGINT},
+      </if>
+      <if test="projId != null" >
+        proj_id = #{projId,jdbcType=BIGINT},
+      </if>
+      <if test="storagePutCode != null" >
+        storage_put_code = #{storagePutCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stuffId != null" >
+        stuff_id = #{stuffId,jdbcType=BIGINT},
+      </if>
+      <if test="stuffStandard != null" >
+        stuff_standard = #{stuffStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="stuffUnit != null" >
+        stuff_unit = #{stuffUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="stuffResource != null" >
+        stuff_resource = #{stuffResource,jdbcType=INTEGER},
+      </if>
+      <if test="stuffName != null" >
+        stuff_name = #{stuffName,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="putNum != null" >
+        put_num = #{putNum,jdbcType=BIGINT},
+      </if>
+      <if test="putPrice != null" >
+        put_price = #{putPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="total != null" >
+        total = #{total,jdbcType=DECIMAL},
+      </if>
+      <if test="putType != null" >
+        put_type = #{putType,jdbcType=INTEGER},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ryoma.stuff.entity.StuffPutStorageRel" >
+    update t_stuff_put_storage_rel
+    set cook_id = #{cookId,jdbcType=BIGINT},
+      proj_id = #{projId,jdbcType=BIGINT},
+      storage_put_code = #{storagePutCode,jdbcType=VARCHAR},
+      stuff_id = #{stuffId,jdbcType=BIGINT},
+      stuff_standard = #{stuffStandard,jdbcType=VARCHAR},
+      stuff_unit = #{stuffUnit,jdbcType=VARCHAR},
+      stuff_resource = #{stuffResource,jdbcType=INTEGER},
+      stuff_name = #{stuffName,jdbcType=VARCHAR},
+      level = #{level,jdbcType=INTEGER},
+      put_num = #{putNum,jdbcType=BIGINT},
+      put_price = #{putPrice,jdbcType=DECIMAL},
+      total = #{total,jdbcType=DECIMAL},
+      put_type = #{putType,jdbcType=INTEGER},
+      update_user_id = #{updateUserId,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_user_id = #{createUserId,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

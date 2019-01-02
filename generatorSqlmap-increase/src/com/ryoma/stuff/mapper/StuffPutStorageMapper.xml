@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ryoma.stuff.mapper.StuffPutStorageMapper" >
+  <resultMap id="BaseResultMap" type="com.ryoma.stuff.entity.StuffPutStorage" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="put_code" property="putCode" jdbcType="VARCHAR" />
+    <result column="proj_id" property="projId" jdbcType="BIGINT" />
+    <result column="put_name" property="putName" jdbcType="VARCHAR" />
+    <result column="put_type" property="putType" jdbcType="INTEGER" />
+    <result column="con_position" property="conPosition" jdbcType="VARCHAR" />
+    <result column="plan_id" property="planId" jdbcType="BIGINT" />
+    <result column="manager_user" property="managerUser" jdbcType="VARCHAR" />
+    <result column="put_date" property="putDate" jdbcType="DATE" />
+    <result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+    <result column="create_user_id" property="createUserId" jdbcType="BIGINT" />
+    <result column="update_user_id" property="updateUserId" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <if test="fields == null" >
+      id, put_code, proj_id, put_name, put_type, con_position, plan_id, manager_user, put_date, 
+      total_price, create_user_id, update_user_id, update_time, create_time, status
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    id,put_code,proj_id,put_name,put_type,con_position,plan_id,manager_user,put_date,total_price,create_user_id,update_user_id,update_time,create_time,status
+    from t_stuff_put_storage
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_stuff_put_storage
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ryoma.stuff.entity.StuffPutStorage" >
+    insert into t_stuff_put_storage (id, put_code, proj_id, 
+      put_name, put_type, con_position, 
+      plan_id, manager_user, put_date, 
+      total_price, create_user_id, update_user_id, 
+      update_time, create_time, status
+      )
+    values (#{id,jdbcType=BIGINT}, #{putCode,jdbcType=VARCHAR}, #{projId,jdbcType=BIGINT}, 
+      #{putName,jdbcType=VARCHAR}, #{putType,jdbcType=INTEGER}, #{conPosition,jdbcType=VARCHAR}, 
+      #{planId,jdbcType=BIGINT}, #{managerUser,jdbcType=VARCHAR}, #{putDate,jdbcType=DATE}, 
+      #{totalPrice,jdbcType=DECIMAL}, #{createUserId,jdbcType=BIGINT}, #{updateUserId,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ryoma.stuff.entity.StuffPutStorage" >
+    insert into t_stuff_put_storage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="putCode != null" >
+        put_code,
+      </if>
+      <if test="projId != null" >
+        proj_id,
+      </if>
+      <if test="putName != null" >
+        put_name,
+      </if>
+      <if test="putType != null" >
+        put_type,
+      </if>
+      <if test="conPosition != null" >
+        con_position,
+      </if>
+      <if test="planId != null" >
+        plan_id,
+      </if>
+      <if test="managerUser != null" >
+        manager_user,
+      </if>
+      <if test="putDate != null" >
+        put_date,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="putCode != null" >
+        #{putCode,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null" >
+        #{projId,jdbcType=BIGINT},
+      </if>
+      <if test="putName != null" >
+        #{putName,jdbcType=VARCHAR},
+      </if>
+      <if test="putType != null" >
+        #{putType,jdbcType=INTEGER},
+      </if>
+      <if test="conPosition != null" >
+        #{conPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="planId != null" >
+        #{planId,jdbcType=BIGINT},
+      </if>
+      <if test="managerUser != null" >
+        #{managerUser,jdbcType=VARCHAR},
+      </if>
+      <if test="putDate != null" >
+        #{putDate,jdbcType=DATE},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ryoma.stuff.entity.StuffPutStorage" >
+    update t_stuff_put_storage
+    <set >
+      <if test="putCode != null" >
+        put_code = #{putCode,jdbcType=VARCHAR},
+      </if>
+      <if test="projId != null" >
+        proj_id = #{projId,jdbcType=BIGINT},
+      </if>
+      <if test="putName != null" >
+        put_name = #{putName,jdbcType=VARCHAR},
+      </if>
+      <if test="putType != null" >
+        put_type = #{putType,jdbcType=INTEGER},
+      </if>
+      <if test="conPosition != null" >
+        con_position = #{conPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="planId != null" >
+        plan_id = #{planId,jdbcType=BIGINT},
+      </if>
+      <if test="managerUser != null" >
+        manager_user = #{managerUser,jdbcType=VARCHAR},
+      </if>
+      <if test="putDate != null" >
+        put_date = #{putDate,jdbcType=DATE},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ryoma.stuff.entity.StuffPutStorage" >
+    update t_stuff_put_storage
+    set put_code = #{putCode,jdbcType=VARCHAR},
+      proj_id = #{projId,jdbcType=BIGINT},
+      put_name = #{putName,jdbcType=VARCHAR},
+      put_type = #{putType,jdbcType=INTEGER},
+      con_position = #{conPosition,jdbcType=VARCHAR},
+      plan_id = #{planId,jdbcType=BIGINT},
+      manager_user = #{managerUser,jdbcType=VARCHAR},
+      put_date = #{putDate,jdbcType=DATE},
+      total_price = #{totalPrice,jdbcType=DECIMAL},
+      create_user_id = #{createUserId,jdbcType=BIGINT},
+      update_user_id = #{updateUserId,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

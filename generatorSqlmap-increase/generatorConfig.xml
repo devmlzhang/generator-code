@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="testTables" targetRuntime="MyBatis3">
+
+		<!-- JavaBean 实现 序列化 接口 -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+		</plugin>
+		<!-- genenat entity时,生成toString -->
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<!-- 自定义物理分页  可生成支持Mysql数据的limit  不支持Oracle -->
+		<plugin type="org.mybatis.generator.plugins.page.PaginationPlugin" />
+		<!-- 自定义查询指定字段  -->
+		<plugin type="org.mybatis.generator.plugins.field.FieldsPlugin" />
+		<!-- 开启支持内存分页   可生成 支持内存分布的方法及参数
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+        -->
+		<!-- generate entity时，生成hashcode和equals方法
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+         -->
+		<!-- 此处是将Example改名为Criteria 当然 想改成什么都行~    -->
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<!-- 替换后
+            <property name="replaceString" value="Criteria" />
+             -->
+			<property name="replaceString" value="Query" />
+		</plugin>
+		<!-- 此处是将UserMapper.xml改名为UserDao.xml 当然 想改成什么都行~ -->
+		<plugin type="org.mybatis.generator.plugins.rename.RenameSqlMapperPlugin">
+			<property name="searchString" value="Mapper" />
+			<property name="replaceString" value="Mapper" />
+		</plugin>
+
+		<!-- 此处是将UserMapper改名为UserDao 接口 当然 想改成什么都行~  -->
+		<plugin type="org.mybatis.generator.plugins.rename.RenameJavaMapperPlugin">
+			<property name="searchString" value="Mapper$" />
+			<property name="replaceString" value="Mapper" />
+		</plugin>
+
+
+
+		<commentGenerator type="org.mybatis.generator.plugins.comment.MyCommentGenerator">
+			<!-- 是否去除自动生成的注释 true：是 ： false:否  -->
+            <property name="suppressAllComments" value="false" />
+
+		</commentGenerator>
+
+		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://10.2.100.252:3306/ryoma_co_ctms"
+						userId="dbamin"
+						password="Db123456">
+		</jdbcConnection>
+
+		<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://127.0.0.1:3306/ryoma_manage"
+						userId="root"
+						password="root">
+		</jdbcConnection>-->
+
+
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+            NUMERIC 类型解析为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+
+		<!-- targetProject:生成PO类的位置 -->
+		<javaModelGenerator targetPackage="com.ryoma.stuff.entity"
+							targetProject="/Users/weirdo/zml/myproject/generatorSqlmap-increase/src">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- targetProject:mapper映射文件生成的位置 -->
+		<sqlMapGenerator targetPackage="com.ryoma.stuff.mapper"
+						 targetProject="/Users/weirdo/zml/myproject/generatorSqlmap-increase/src">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+		<!-- targetPackage：mapper接口生成的位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+							 targetPackage="com.ryoma.stuff.mapper"
+							 targetProject="/Users/weirdo/zml/myproject/generatorSqlmap-increase/src">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+
+		<!--<table tableName="hcb_record" domainObjectName="hcb.Record" />-->
+
+		<!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->
+
+		<table tableName="t_stuff_put_storage" domainObjectName="StuffPutStorage"
+			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+			   enableSelectByExample="false" selectByExampleQueryId="false" >
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+
+		<table tableName="t_stuff_put_storage_rel" domainObjectName="StuffPutStorageRel"
+			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+			   enableSelectByExample="false" selectByExampleQueryId="false" >
+			<property name="useActualColumnNames" value="false"/>
+		</table>
+
+
+
+
+
+
+
+	</context>
+
+</generatorConfiguration>
