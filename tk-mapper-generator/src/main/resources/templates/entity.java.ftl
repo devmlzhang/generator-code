@@ -4,8 +4,7 @@ package ${package.entity};
 import ${pkg};
 </#list>
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
+import javax.persistence.Column;
 
 /**
  * <p>
@@ -15,12 +14,6 @@ import lombok.experimental.Accessors;
  * @since ${date}
  */
 @Data
-    <#if superEntityClass??>
-@EqualsAndHashCode(callSuper = true)
-    <#else>
-@EqualsAndHashCode(callSuper = false)
-    </#if>
-@Accessors(chain = true)
 @Table(name = "${table.name}")
 <#if superEntityClass??>
 public class ${table.entityName} extends ${superEntityClass} {
@@ -41,11 +34,11 @@ public class ${table.entityName} implements Serializable {
     <#-- 主键 -->
         <#if field.keyIdentityFlag>
     @Id
-    @KeySql(useGeneratedKeys = true)
         <#else>
     @Id
         </#if>
     </#if>
+    @Column(name = "${field.name}")
     private ${field.propertyType} ${field.propertyName};
 </#list>
 }

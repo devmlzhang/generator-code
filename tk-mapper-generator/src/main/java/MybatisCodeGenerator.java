@@ -4,6 +4,9 @@ import com.weirdo.tkmapper.generator.config.GlobalConfig;
 import com.weirdo.tkmapper.generator.config.PackageConfig;
 import com.weirdo.tkmapper.generator.config.StrategyConfig;
 import com.weirdo.tkmapper.generator.config.rules.DateType;
+import com.weirdo.tkmapper.generator.engine.AbstractTemplateEngine;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -20,7 +23,7 @@ public class MybatisCodeGenerator {
         AutoGenerator generator = new AutoGenerator();
         // 策略配置
         StrategyConfig strategy = new StrategyConfig()
-            .setInclude("tb_user");
+            .setInclude("tb_category");
         generator.setStrategy(strategy);
         // 全局配置
         GlobalConfig globalConfig = new GlobalConfig()
@@ -30,7 +33,7 @@ public class MybatisCodeGenerator {
             .setDateType(DateType.ONLY_DATE);
         generator.setGlobalConfig(globalConfig);
         PackageConfig packageConfig=new PackageConfig();
-        packageConfig.setParent("com.test");
+        packageConfig.setParent("com.weirdo.finacel");
         generator.setPackageConfig(packageConfig);
         // 数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig()

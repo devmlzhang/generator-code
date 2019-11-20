@@ -15,53 +15,75 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
+    <core.version>5.1.6.RELEASE</core.version>
+    <lombok.version>1.18.6</lombok.version>
+    <freemarker.version>2.3.9</freemarker.version>
     <mysql.version>8.0.16</mysql.version>
+    <commons.version>3.9</commons.version>
+    <mybatis.starter.version>2.0.1</mybatis.starter.version>
+    <mapper.starter.version>2.1.5</mapper.starter.version>
+    <swagger.version>2.9.2</swagger.version>
+    <swagger-ui.version>2.9.2</swagger-ui.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.0.9.RELEASE</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>5.1.6.RELEASE</version>
+      <version>${core.version}</version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.4</version>
+      <version>${lombok.version}</version>
       <scope>provided</scope>
     </dependency>
+    <!-- swagger2开始  -->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>${swagger.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>${swagger-ui.version}</version>
+    </dependency>
+    <!-- mybatis启动器 -->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>${mybatis.starter.version}</version>
+    </dependency>
+    <!-- 通用Mapper启动器 -->
     <dependency>
       <groupId>tk.mybatis</groupId>
-      <artifactId>mapper-core</artifactId>
-      <version>1.1.5</version>
+      <artifactId>mapper-spring-boot-starter</artifactId>
+      <version>${mapper.starter.version}</version>
     </dependency>
     <dependency>
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
-      <version>2.3.28</version>
+      <version>${freemarker.version}</version>
+      <scope>optional</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.9</version>
+      <version>${commons.version}</version>
     </dependency>
 
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>${mysql.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>io.swagger.core.v3</groupId>
-      <artifactId>swagger-annotations</artifactId>
-      <version>2.0.7</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.2.3</version>
     </dependency>
   </dependencies>
 
