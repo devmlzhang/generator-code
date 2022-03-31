@@ -15,7 +15,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
-    <core.version>5.1.6.RELEASE</core.version>
+    <core.version>5.3.18</core.version>
     <lombok.version>1.18.6</lombok.version>
     <freemarker.version>2.3.9</freemarker.version>
     <mysql.version>8.0.16</mysql.version>
